@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SfTextInputLayout_MauiApp.MainPage"
+             
+             
+    xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             >
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+
+            <Entry
+                Text="{Binding Name, Mode=TwoWay}" 
+                Keyboard="Default"
+                />
+            
+            <!-- Entry -->
+            <core:SfTextInputLayout
+                 Style="{StaticResource Style.Syncfusion.SfTextInputLayout.Default}"
+                 Hint="Name"
+                 ErrorText=""
+                 ContainerBackground="Green"
+                 >
+                <Entry
+                     Background="{Binding Source={RelativeSource AncestorType={x:Type core:SfTextInputLayout}}, Path=Background}"
+                     Text="{Binding Name, Mode=TwoWay}" 
+                     Keyboard="Default"
+                     />
+            </core:SfTextInputLayout>
+
+            <!-- Numeric -->
+            <core:SfTextInputLayout
+                 Style="{StaticResource Style.Syncfusion.SfTextInputLayout.Default}"
+                 Hint="Numeric"
+                 ErrorText=""
+                 ContainerBackground="AliceBlue"
+                 >
+                <inputs:SfNumericEntry
+                      Background="{Binding Source={RelativeSource AncestorType={x:Type core:SfTextInputLayout}}, Path=Background}"
+                      Value="{Binding Quantity, Mode=TwoWay}" 
+                      Margin="5,0"
+                      />
+            </core:SfTextInputLayout>
+
+            <!-- Numeric -->
+            <core:SfTextInputLayout
+                 Style="{StaticResource Style.Syncfusion.SfTextInputLayout.Default}"
+                 Hint="Numeric"
+                 ErrorText=""
+                 >
+                <inputs:SfNumericEntry
+                      Style="{StaticResource Style.Syncfusion.SfNumericEntry.Default}"
+                      Background="Transparent"
+                      Value="{Binding Quantity, Mode=TwoWay}" 
+                      Margin="5,0"
+                      />
+            </core:SfTextInputLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
